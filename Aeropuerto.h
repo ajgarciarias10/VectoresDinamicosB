@@ -18,6 +18,7 @@ private:
     UTM *posicion;
     string continente;
     string iso_pais;
+    //
 
 };
 

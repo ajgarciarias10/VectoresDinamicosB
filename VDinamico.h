@@ -209,7 +209,7 @@ void VDinamico<T>::insertar(const T &dato, unsigned int pos) {
     if(pos==UINT_MAX){
 
     }
-
+///
 
 
 
