@@ -18,9 +18,11 @@ private:
     UTM *posicion;
     string continente;
     string iso_pais;
-    //
+
 
 };
 
+//Constructor de copia
+// Tener dos operator == y <
 
 #endif //VECTORESDINAMICOSB_AEROPUERTO_H

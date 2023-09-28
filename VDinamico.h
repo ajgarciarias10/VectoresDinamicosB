@@ -44,6 +44,12 @@ public :
     void ordenarRev();
     //Metodo de insertar en el vector
     void insertar(const T& dato, unsigned int pos =UINT_MAX);
+    //Metodo para borrar en el vector por su posicion
+    T borrar(unsigned int pos =UINT_MAX);
+    //Busqueda Binaria
+    int busquedaBinaria(T &dato);
+    //Obterner el tamaño logico del vector
+    unsigned int  tamlog();
 };
 
 
@@ -181,7 +187,7 @@ void VDinamico<T>::ordenarRev(){
     std::sort(vector,vector + tamalog,std::greater<T>());
 }
 /**
- * @brief Metodo de inserccion de un dato en memoria dinamica
+ * @brief Metodo de inserccion de un dato
  * @tparam T
  * @param dato
  * @param pos
@@ -189,36 +195,131 @@ void VDinamico<T>::ordenarRev(){
 
 template<class T>
 void VDinamico<T>::insertar(const T &dato, unsigned int pos) {
-    //En caso de que el vector este lleno
-    if(tamalog == tamafis){
+    //region En caso de que el vector este lleno
+    if(tamalog == tamafis) {
         //Creamos un vector nuevo auxiliar
         int *vaux;
-         //Que sea el potencia de dos de grande
+        //Que sea el potencia de dos de grande
         vaux = new int[tamafis = tamafis * 2];
         for (int i = 0; i < tamalog; ++i) {
-                //Pasamos los datos del vector a la variable auxiliar
-                vaux[i] = vector[i];
+            //Pasamos los datos del vector a la variable auxiliar
+            vaux[i] = vector[i];
         }
         //Borramos el antiguo vector
         delete[]vector;
         //Y lo sobreescribimos
         vector = vaux;
     }
+    //endregion
+    //Las posicion ha superado el tamaño del vector
     if(pos > tamalog)
         throw std::out_of_range("Posicion fuera del vector");
+    //Si no le mandas ninguna posicion
     if(pos==UINT_MAX){
+        vector[tamalog++] = dato;
+    }
+    else {
+        //Comprobar si el tamaño logico no esta vacio
+        if (tamalog != 0) {
+            //Movemos los datos hacia la derecha
+            for (unsigned i = tamalog - 1; i >= pos; i--) {
+                vector[i + 1] = vector[i];
+            }
+            vector[pos] = dato;
+        }
+        tamalog++;
 
     }
-///
+}
+/**
+ * @brief  Metodo de borrado en funcion de la posicion
+ * @tparam T
+ * @param pos posicion a eliminar
+ * @return
+ */
+template<class T>
+T VDinamico<T>::borrar(unsigned  int pos){
+    //Si el tamaño logico es un tercio menor que el tamaño fisico
+    if(tamalog*3 < tamafis){
+        //Reducimos el tamaño fisico a la mitad
+        tamafis = tamafis / 2;
+        //Creo un vector como puntero con  el nuevo tamaño fisico reducido
+        int *vaux = new int[tamafis];
+        //Recorro el vector y lo pasamos  al vector en el nuevo vector puntero
+        for(unsigned  i=0 ; i < tamalog; i++){
+            vaux[i]= vector[i];
+        }
+        //Borre el vector
+        delete []vector;
+        //Sobreescribimos en el vector
+        vector=vaux;
+    }
+    //Las posicion ha superado el tamaño del vector
+    if(pos > tamalog)
+        throw std::out_of_range("Posicion fuera del vector");
+    //Si no le mandas ninguna posicion
+    if(pos==UINT_MAX){
+        //Devolvemos el vector
+        return vector[--tamalog];
+    }
+    else {
+        //Comprobar si el tamaño logico no esta vacio
+        if (tamalog != 0) {
+            //Movemos los datos hacia atras
+            for (unsigned i = pos; i <tamalog; i++) {
+                vector[i] =  vector[i + 1] ;
+            }
+            tamalog--;
+        }
+        return vector[--tamalog];
+
+    }
+
+
+
 
 
 
 
 }
+/**
+ * @brief Metodo para realizar la busqueda binaria del dato en el vecto
+ * @tparam T
+ * @param dato
+ * @return
+ */
+template<class T>
+int VDinamico<T>::busquedaBinaria(T &dato) {
+    //Antes de realizar esto el vector deberia estar ordenado
+    //Inicializamos una posicion inferior
+    int inf= 0;
+    //Incializamos la posicion superior
+    int sup = tamafis -1 ;
+    //Variable para la busqueda de la posicion
+    int curIn;
+    //Mientras la posicion
+    while(inf <= sup){
+        //Reducimos el vector para la busqueda
+        curIn = (inf + sup)/2;
+        //Si el vector tiene el dato pues devolvemos el partido
+        if(vector[curIn] == dato)
+            return  curIn;
+        //Si el datos es menor que la posicion del vector
+        else if (vector[curIn] < dato) inf = curIn + 1 ;
+            else sup = curIn - 1 ;
 
+    }
+    //En caso de que no se realice la busqueda del dato dentro del vector devolvemos el fallo
+    return  -1;
+}
 
-
-
-
-
+/**
+ * @brief Metdodo para devolver el tamaño lógico
+ * @tparam T
+ * @return
+ */
+template<class T>
+unsigned int  VDinamico<T>::tamlog() {
+    return  tamalog;
+}
 #endif //VECTORESDINAMICOSB_VDINAMICO_H
