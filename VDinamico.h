@@ -50,6 +50,9 @@ public :
     int busquedaBinaria(T &dato);
     //Obterner el tamaño logico del vector
     unsigned int  tamlog();
+
+
+
 };
 
 

@@ -7,10 +7,22 @@
 
 
 class UTM {
+public:
+    UTM()=default;
+
+    float getLatitud() const;
+
+    void setLatitud(float latitud);
+
+    float getLonguitud() const;
+
+    void setLonguitud(float longuitud);
+
 private:
-    float latitud;
-    float longuitud;
+    float latitud = 0.0;
+    float longuitud = 0.0;
 };
+
 
 
 #endif //VECTORESDINAMICOSB_UTM_H
