@@ -4,6 +4,8 @@
 
 #include "UTM.h"
 
+
+
 float UTM::getLatitud() const {
     return latitud;
 }
@@ -19,3 +21,5 @@ float UTM::getLonguitud() const {
 void UTM::setLonguitud(float longuitud) {
     UTM::longuitud = longuitud;
 }
+
+UTM::UTM(const float &latitud, const float &longuitud):latitud(latitud),longuitud(longuitud) {}

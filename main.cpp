@@ -1,7 +1,8 @@
 #include <iostream>
-#include "stdlib.h"
 #include "time.h"
 #include "VDinamico.h"
+#include "Aeropuerto.h"
+#include "UTM.h"
 #include <fstream>
 #include <string>
 #include <sstream>
@@ -15,6 +16,8 @@
  * @return
  */
 int main(int argc, const char * argv[]) {
+    int limite = 10000;
+    VDinamico<Aeropuerto> vector(limite);
 
     std::ifstream is;
     std::stringstream  columnas;
@@ -33,6 +36,7 @@ int main(int argc, const char * argv[]) {
     float latitud, longitud;
 
     is.open("../aeropuertos.csv"); //carpeta de proyecto
+    //Abrir
     if ( is.good() ) {
 
         clock_t t_ini = clock();
@@ -55,14 +59,18 @@ int main(int argc, const char * argv[]) {
                 getline(columnas,continente,';');
                 getline(columnas,iso_pais,';');
 
+
                 //  Transformamos la latitud y longitud a float
                 latitud=std::stof(latitud_str);
                 longitud=std::stof(longitud_str);
 
                 fila="";
                 columnas.clear();
-
-                std::cout << ++contador
+                ++contador;
+                UTM* utm = new UTM(latitud,longitud);
+                Aeropuerto aeropuerto(id,ident,tipo,nombre,continente,iso_pais,utm);
+                vector.insertar(aeropuerto);
+                std::cout
                           << " Aeropuerto: ( ID=" << id
                           << " ident=" << ident << " Tipo=" << tipo << " Nombre=" << nombre
                           << " Posicion=(" << latitud << ", " << longitud << ")"
@@ -71,6 +79,7 @@ int main(int argc, const char * argv[]) {
             }
         }
 
+        //Cerrar
         is.close();
 
         std::cout << "Tiempo lectura: " << ((clock() - t_ini) / (float) CLOCKS_PER_SEC) << " segs." << std::endl;

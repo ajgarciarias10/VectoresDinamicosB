@@ -11,7 +11,20 @@
  * @param origen
  */
 Aeropuerto::Aeropuerto(const Aeropuerto &origen):id(origen.id),ident(origen.ident),tipo(origen.tipo),nombre(origen.nombre),continente(origen.continente),iso_pais(origen.iso_pais),posicion(origen.posicion) {}
-//Operator ==
+/**
+ * @brief Constructor parametrizado
+ * @param id
+ * @param iden
+ * @param tipo
+ * @param nombre
+ * @param continente
+ * @param iso_pais
+ * @param posicion
+ */
+Aeropuerto::Aeropuerto(const string &id, const string &iden, const string &tipo, const string &nombre,
+                       const string &continente, const string &iso_pais, UTM *posicion) : id(id),ident(iden),tipo(tipo),nombre(nombre),continente(continente),iso_pais(iso_pais),posicion(posicion) {
+
+}
 /**
  * @brief Metodo Operator ==
  * @param origen
@@ -100,3 +113,5 @@ const string &Aeropuerto::getIsoPais() const {
 void Aeropuerto::setIsoPais(const string &isoPais) {
     iso_pais = isoPais;
 }
+
+

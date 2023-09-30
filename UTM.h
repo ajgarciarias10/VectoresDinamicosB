@@ -10,6 +10,8 @@ class UTM {
 public:
     UTM()=default;
 
+    UTM(const float  &latitud, const float &longuitud);
+
     float getLatitud() const;
 
     void setLatitud(float latitud);
@@ -22,6 +24,7 @@ private:
     float latitud = 0.0;
     float longuitud = 0.0;
 };
+
 
 
 

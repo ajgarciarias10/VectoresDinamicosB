@@ -18,6 +18,10 @@ public:
     Aeropuerto() = default;
     //Constructor copia
     Aeropuerto(const Aeropuerto &origen);
+    //Constructor parametrizado
+    Aeropuerto(const string &id,const string &iden,
+               const string &tipo, const string &nombre,
+               const string &continente, const string &iso_pais, UTM *posicion);
     //Operador ==
     Aeropuerto &operator = (Aeropuerto &origen);
     //Operador <
