@@ -12,7 +12,7 @@ using namespace  std;
 class Aeropuerto {
 private:
     string id = "",ident = "", tipo =" ", nombre = "",continente = " ", iso_pais = "";
-    UTM *posicion = nullptr;
+    UTM posicion ;
 public:
     //Constructor por defecto
     Aeropuerto() = default;
@@ -21,9 +21,9 @@ public:
     //Constructor parametrizado
     Aeropuerto(const string &id,const string &iden,
                const string &tipo, const string &nombre,
-               const string &continente, const string &iso_pais, UTM *posicion);
+               const string &continente, const string &iso_pais, UTM posicion);
     //Operador ==
-    Aeropuerto &operator = (Aeropuerto &origen);
+    //Aeropuerto &operator = (Aeropuerto &origen);
     //Operador <
     bool operator < (Aeropuerto &origen);
 
@@ -54,6 +54,8 @@ public:
     const string &getIsoPais() const;
 
     void setIsoPais(const string &isoPais);
+
+    void setPosicion(const UTM &posicion);
 
 public:
 

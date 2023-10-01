@@ -18,6 +18,8 @@
 template<class T>
 class VDinamico {
 private:
+    /* T *aeropuerto;
+     * unsigned int tamal, tamf; */
     //Puntero a tipo generico
     T *vector = nullptr;
     //Tamaño del vector sin signo long el entero mas grande
@@ -43,7 +45,7 @@ public :
     //Ordenar de mayor a menor
     void ordenarRev();
     //Metodo de insertar en el vector
-    void insertar(const T& dato, unsigned int pos =UINT_MAX);
+    void insertar(const T& dato, unsigned long int pos = UINT_MAX);
     //Metodo para borrar en el vector por su posicion
     T borrar(unsigned int pos =UINT_MAX);
     //Busqueda Binaria
@@ -197,42 +199,31 @@ void VDinamico<T>::ordenarRev(){
  */
 
 template<class T>
-void VDinamico<T>::insertar(const T &dato, unsigned int pos) {
-    //region En caso de que el vector este lleno
-    if(tamalog == tamafis) {
-        //Creamos un vector nuevo auxiliar
-        int *vaux;
-        //Que sea el potencia de dos de grande
-        vaux = new int[tamafis = tamafis * 2];
-        for (int i = 0; i < tamalog; ++i) {
-            //Pasamos los datos del vector a la variable auxiliar
-            vaux[i] = vector[i];
-        }
-        //Borramos el antiguo vector
-        delete[]vector;
-        //Y lo sobreescribimos
-        vector = vaux;
+void VDinamico<T>::insertar(const T& dato, unsigned long int pos){
+
+    if(tamalog==tamafis) {
+        T *vaux= new T[tamafis=tamafis*2];
+        for(int i=0;i<tamalog;i++)
+            vaux[i]=vector[i];
+        delete[] vector;
+        vector=vaux;
     }
-    //endregion
-    //Las posicion ha superado el tamaño del vector
-    if(pos > tamalog)
-        throw std::out_of_range("Posicion fuera del vector");
-    //Si no le mandas ninguna posicion
+
     if(pos==UINT_MAX){
-        vector[tamalog++] = dato;
-    }
-    else {
-        //Comprobar si el tamaño logico no esta vacio
-        if (tamalog != 0) {
-            //Movemos los datos hacia la derecha
-            for (unsigned i = tamalog - 1; i >= pos; i--) {
-                vector[i + 1] = vector[i];
+        vector[tamalog++]=dato;
+    }else{
+        if(pos<0 )
+            throw std::out_of_range ("La posicion no puede ser mayor que el numero de elementos del vector");
+
+        if(tamalog!=0) {
+            tamalog++;
+            for (int i = tamalog - 1; i > pos +1; i--) {
+                vector[i] = vector[i - 1];
             }
             vector[pos] = dato;
         }
-        tamalog++;
-
     }
+
 }
 /**
  * @brief  Metodo de borrado en funcion de la posicion

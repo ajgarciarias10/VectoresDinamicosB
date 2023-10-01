@@ -16,13 +16,14 @@
  * @return
  */
 int main(int argc, const char * argv[]) {
-    int limite = 10000;
-    VDinamico<Aeropuerto> vector(limite);
+    VDinamico<Aeropuerto> vector;
+    Aeropuerto aeropuerto;
 
     std::ifstream is;
     std::stringstream  columnas;
     std::string fila;
     int contador=0;
+    int nElementos=0;
 
     std::string id = "";
     std::string ident="";
@@ -66,23 +67,29 @@ int main(int argc, const char * argv[]) {
 
                 fila="";
                 columnas.clear();
-                ++contador;
-                UTM* utm = new UTM(latitud,longitud);
-                Aeropuerto aeropuerto(id,ident,tipo,nombre,continente,iso_pais,utm);
-                vector.insertar(aeropuerto);
+                contador++;
+                /*
                 std::cout
-                          << " Aeropuerto: ( ID=" << id
-                          << " ident=" << ident << " Tipo=" << tipo << " Nombre=" << nombre
-                          << " Posicion=(" << latitud << ", " << longitud << ")"
-                          << " Continente=" << continente << " Pais=" << iso_pais
-                          << ")" << std::endl;
+                        << " Aeropuerto: ( ID=" << id
+                        << " ident=" << ident << " Tipo=" << tipo << " Nombre=" << nombre
+                        << " Posicion=(" << latitud << ", " << longitud << ")"
+                        << " Continente=" << continente << " Pais=" << iso_pais
+                        << ")" << std::endl;
+*/
+
+                UTM *utm= new UTM(latitud,longitud);
+
+                Aeropuerto *aeropuerto=new Aeropuerto(id,ident,tipo,nombre,continente,iso_pais,*utm);
+                vector.insertar(*aeropuerto,nElementos);
+                nElementos++;
+
             }
         }
 
         //Cerrar
         is.close();
-
         std::cout << "Tiempo lectura: " << ((clock() - t_ini) / (float) CLOCKS_PER_SEC) << " segs." << std::endl;
+
     } else {
         std::cout << "Error de apertura en archivo" << std::endl;
     }

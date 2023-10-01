@@ -22,14 +22,15 @@ Aeropuerto::Aeropuerto(const Aeropuerto &origen):id(origen.id),ident(origen.iden
  * @param posicion
  */
 Aeropuerto::Aeropuerto(const string &id, const string &iden, const string &tipo, const string &nombre,
-                       const string &continente, const string &iso_pais, UTM *posicion) : id(id),ident(iden),tipo(tipo),nombre(nombre),continente(continente),iso_pais(iso_pais),posicion(posicion) {
+                       const string &continente, const string &iso_pais, UTM posicion) : id(id),ident(iden),tipo(tipo),nombre(nombre),continente(continente),iso_pais(iso_pais),posicion(posicion) {
 
 }
+
 /**
  * @brief Metodo Operator ==
  * @param origen
  * @return
- */
+
 Aeropuerto &Aeropuerto::operator =(Aeropuerto &origen){
     //Comprobamos que no sea la misma direccion de memoria
     if(this!= &origen){
@@ -48,6 +49,7 @@ Aeropuerto &Aeropuerto::operator =(Aeropuerto &origen){
     return  *this;
 
 }
+  */
 /**
  * @brief Metodo operator < para comparar ids
  * @param origen
@@ -90,11 +92,7 @@ void Aeropuerto::setNombre(const string &nombre) {
     Aeropuerto::nombre = nombre;
 }
 
-UTM *Aeropuerto::getPosicion() const {
-    return posicion;
-}
-
-void Aeropuerto::setPosicion(UTM *posicion) {
+void Aeropuerto::setPosicion(const UTM &posicion) {
     Aeropuerto::posicion = posicion;
 }
 
