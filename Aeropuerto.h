@@ -25,7 +25,7 @@ public:
     //Operador ==
     //Aeropuerto &operator = (Aeropuerto &origen);
     //Operador <
-    bool operator < (Aeropuerto &origen);
+    bool operator <(Aeropuerto &origen);
 
     const string &getId() const;
 

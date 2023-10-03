@@ -21,13 +21,13 @@ private:
     /* T *aeropuerto;
      * unsigned int tamal, tamf; */
     //Puntero a tipo generico
-    T *vector = nullptr;
+    T *vector;
     //Tamaño del vector sin signo long el entero mas grande
-    unsigned long int tamalog = 0;
-    unsigned long int tamafis = 1;
+    unsigned long int tamalog;
+    unsigned long int tamafis;
 public :
     //Constructor por defecto
-    VDinamico()=default;
+    VDinamico();
     //Constructor por parametrizado
     VDinamico(unsigned  int n);
     //Constructor de copia
@@ -56,8 +56,14 @@ public :
 
 
 };
-
-
+/**
+ * @brief Constructor por defecto
+ * @tparam T
+ */
+template<class T>
+VDinamico<T>::VDinamico():tamafis(1),tamalog(0) {
+    vector = new T [tamafis];
+}
 
 /**
  * @brief Constructor parametrizado del vector dinamico

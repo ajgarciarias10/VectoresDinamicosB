@@ -80,8 +80,11 @@ int main(int argc, const char * argv[]) {
                 UTM *utm= new UTM(latitud,longitud);
 
                 Aeropuerto *aeropuerto=new Aeropuerto(id,ident,tipo,nombre,continente,iso_pais,*utm);
-                vector.insertar(*aeropuerto,nElementos);
+                vector.insertar(*aeropuerto);
                 nElementos++;
+
+                delete aeropuerto;
+                delete utm;
 
             }
         }
@@ -93,6 +96,12 @@ int main(int argc, const char * argv[]) {
     } else {
         std::cout << "Error de apertura en archivo" << std::endl;
     }
+    vector.ordenar();
+    for (int i =1   ; i < 30; ++i) {
+        std::cout<< vector[i].getId()<< std::endl;
+    }
+
+
 
 
     return 0;
