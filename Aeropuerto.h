@@ -23,7 +23,9 @@ public:
                const string &tipo, const string &nombre,
                const string &continente, const string &iso_pais, UTM posicion);
     //Operador ==
-    //Aeropuerto &operator = (Aeropuerto &origen);
+    bool operator == (const Aeropuerto &origen);
+    //Operador =
+    Aeropuerto &operator = (const Aeropuerto &origen);
     //Operador <
     bool operator <(Aeropuerto &origen);
 

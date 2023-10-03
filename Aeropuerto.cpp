@@ -25,17 +25,18 @@ Aeropuerto::Aeropuerto(const string &id, const string &iden, const string &tipo,
                        const string &continente, const string &iso_pais, UTM posicion) : id(id),ident(iden),tipo(tipo),nombre(nombre),continente(continente),iso_pais(iso_pais),posicion(posicion) {
 
 }
-
+bool Aeropuerto::operator==(const Aeropuerto &origen) {
+        return  (this->id == origen.id);
+}
 /**
  * @brief Metodo Operator ==
  * @param origen
  * @return
-
-Aeropuerto &Aeropuerto::operator =(Aeropuerto &origen){
+  */
+Aeropuerto &Aeropuerto::operator =(const Aeropuerto &origen){
     //Comprobamos que no sea la misma direccion de memoria
     if(this!= &origen){
-        //Borramos el puntero del aeropuerto
-        delete  []this;
+
         //Asignamos a cada operando  su valor
         id= origen.id;
         ident = origen.ident;
@@ -49,7 +50,7 @@ Aeropuerto &Aeropuerto::operator =(Aeropuerto &origen){
     return  *this;
 
 }
-  */
+
 /**
  * @brief Metodo operator < para comparar ids
  * @param origen

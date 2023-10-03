@@ -96,11 +96,21 @@ int main(int argc, const char * argv[]) {
     } else {
         std::cout << "Error de apertura en archivo" << std::endl;
     }
+    //Ordenar de menor a mayor
     vector.ordenar();
+    //Ordenar de mayor a menor
+   // vector.ordenarRev();
+    //Mostramos por pantalla los primero o ultimos  30 aeropuertos
     for (int i =1   ; i < 30; ++i) {
-        std::cout<< vector[i].getId()<< std::endl;
+        std::cout<< "Nombre: " + vector[i].getNombre() +" Id: "+ vector[i].getId() + "\n" << std::endl;
     }
-
+    //Busqueda Binaria
+    VDinamico<Aeropuerto> busquedaPorID;
+    busquedaPorID[0].setId("345166");
+    busquedaPorID[1].setId("6640");
+    busquedaPorID[2].setId("6676");
+    busquedaPorID[3].setId("345364");
+    busquedaPorID[4].setId("6778");
 
 
 

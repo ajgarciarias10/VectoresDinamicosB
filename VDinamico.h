@@ -13,6 +13,7 @@
 #include "algorithm"
 #include "cmath"
 #include "climits"
+#include "Aeropuerto.h"
 #ifndef VECTORESDINAMICOSB_VDINAMICO_H
 #define VECTORESDINAMICOSB_VDINAMICO_H
 template<class T>
@@ -195,7 +196,13 @@ void VDinamico<T>::ordenar() {
  */
 template <class T>
 void VDinamico<T>::ordenarRev(){
-    std::sort(vector,vector + tamalog,std::greater<T>());
+    T aux;
+    for (int i = 0; i < tamalog/2 ; ++i) {
+        aux = vector[i];
+        vector[i]=vector[tamalog-i-1];
+        vector[tamalog-i-1]=aux;
+
+    }
 }
 /**
  * @brief Metodo de inserccion de un dato
