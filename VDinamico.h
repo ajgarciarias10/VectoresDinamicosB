@@ -19,8 +19,6 @@
 template<class T>
 class VDinamico {
 private:
-    /* T *aeropuerto;
-     * unsigned int tamal, tamf; */
     //Puntero a tipo generico
     T *vector;
     //Tamaño del vector sin signo long el entero mas grande
@@ -30,7 +28,7 @@ public :
     //Constructor por defecto
     VDinamico();
     //Constructor por parametrizado
-    VDinamico(unsigned  int n);
+    VDinamico(unsigned  long int n);
     //Constructor de copia
     VDinamico(const VDinamico<T>& origen);
     //Constructor de copia por trozos
@@ -50,7 +48,7 @@ public :
     //Metodo para borrar en el vector por su posicion
     T borrar(unsigned int pos =UINT_MAX);
     //Busqueda Binaria
-    int busquedaBinaria(T &dato);
+    int busquedaBinaria(const T& dato);
     //Obterner el tamaño logico del vector
     unsigned int  tamlog();
 
@@ -72,7 +70,7 @@ VDinamico<T>::VDinamico():tamafis(1),tamalog(0) {
  * @param n Tamaño asignado al vector
  */
 template<class T>
-VDinamico<T>::VDinamico(unsigned int n) {
+VDinamico<T>::VDinamico(unsigned long int n) {
     tamalog = n;
     while(tamalog > tamafis){
         tamafis = tamafis * 2;
@@ -187,6 +185,7 @@ T &VDinamico<T>::operator[](unsigned  long int pos){
  */
 template <class T>
 void VDinamico<T>::ordenar() {
+    //El sort se va hacia el operator < de nuestro  vector
     std::sort(vector,vector + tamalog);
 }
 
@@ -251,7 +250,7 @@ T VDinamico<T>::borrar(unsigned  int pos){
         //Reducimos el tamaño fisico a la mitad
         tamafis = tamafis / 2;
         //Creo un vector como puntero con  el nuevo tamaño fisico reducido
-        int *vaux = new int[tamafis];
+        T *vaux = new T[tamafis];
         //Recorro el vector y lo pasamos  al vector en el nuevo vector puntero
         for(unsigned  i=0 ; i < tamalog; i++){
             vaux[i]= vector[i];
@@ -278,7 +277,7 @@ T VDinamico<T>::borrar(unsigned  int pos){
             }
             tamalog--;
         }
-        return vector[--tamalog];
+        return vector[tamalog];
 
     }
 
@@ -296,24 +295,24 @@ T VDinamico<T>::borrar(unsigned  int pos){
  * @return
  */
 template<class T>
-int VDinamico<T>::busquedaBinaria(T &dato) {
+int VDinamico<T>::busquedaBinaria(const T& dato) {
     //Antes de realizar esto el vector deberia estar ordenado
     //Inicializamos una posicion inferior
     int inf= 0;
     //Incializamos la posicion superior
-    int sup = tamafis -1 ;
+    int sup = tamalog -1 ;
     //Variable para la busqueda de la posicion
     int curIn;
     //Mientras la posicion
     while(inf <= sup){
         //Reducimos el vector para la busqueda
         curIn = (inf + sup)/2;
-        //Si el vector tiene el dato pues devolvemos el partido
+        //Si el vector tiene el dato pues devolvemos la poosicion partido
         if(vector[curIn] == dato)
             return  curIn;
         //Si el datos es menor que la posicion del vector
         else if (vector[curIn] < dato) inf = curIn + 1 ;
-            else sup = curIn - 1 ;
+        else sup = curIn - 1 ;
 
     }
     //En caso de que no se realice la busqueda del dato dentro del vector devolvemos el fallo

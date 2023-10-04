@@ -12,10 +12,10 @@ using namespace  std;
 class Aeropuerto {
 private:
     string id = "",ident = "", tipo =" ", nombre = "",continente = " ", iso_pais = "";
-    UTM posicion ;
+    UTM posicion  ;
 public:
     //Constructor por defecto
-    Aeropuerto() = default;
+    Aeropuerto();
     //Constructor copia
     Aeropuerto(const Aeropuerto &origen);
     //Constructor parametrizado
@@ -27,7 +27,7 @@ public:
     //Operador =
     Aeropuerto &operator = (const Aeropuerto &origen);
     //Operador <
-    bool operator <(Aeropuerto &origen);
+    bool operator< (const Aeropuerto &origen) const;
 
     const string &getId() const;
 

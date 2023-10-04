@@ -3,8 +3,12 @@
 //
 
 #include "Aeropuerto.h"
-
-
+/**
+ * @brief Constructor por defecto
+ */
+Aeropuerto::Aeropuerto() : id(""), ident(""), tipo(""), nombre(""), continente(""),
+                           iso_pais(""),posicion(UTM()) {
+}
 
 /**
  * @brief   Metodo Constructor de copia
@@ -29,7 +33,7 @@ bool Aeropuerto::operator==(const Aeropuerto &origen) {
         return  (this->id == origen.id);
 }
 /**
- * @brief Metodo Operator ==
+ * @brief Metodo Operator =
  * @param origen
  * @return
   */
@@ -56,7 +60,7 @@ Aeropuerto &Aeropuerto::operator =(const Aeropuerto &origen){
  * @param origen
  * @return
  */
-bool Aeropuerto::operator<(Aeropuerto &origen) {
+bool Aeropuerto::operator<(const Aeropuerto &origen) const {
     return  (stoi(id) < stoi(origen.id));
 
 }
