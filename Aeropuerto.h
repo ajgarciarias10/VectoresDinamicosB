@@ -28,40 +28,11 @@ public:
     Aeropuerto &operator = (const Aeropuerto &origen);
     //Operador <
     bool operator< (const Aeropuerto &origen) const;
-
+    //Getters que he usado
     const string &getId() const;
-
-    void setId(const string &id);
-
     const string &getIdent() const;
-
-    void setIdent(const string &ident);
-
-    const string &getTipo() const;
-
-    void setTipo(const string &tipo);
-
     const string &getNombre() const;
-
-    void setNombre(const string &nombre);
-
-    UTM *getPosicion() const;
-
-    void setPosicion(UTM *posicion);
-
     const string &getContinente() const;
-
-    void setContinente(const string &continente);
-
-    const string &getIsoPais() const;
-
-    void setIsoPais(const string &isoPais);
-
-    void setPosicion(const UTM &posicion);
-
-public:
-
-
 };
 
 

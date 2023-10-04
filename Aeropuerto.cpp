@@ -64,57 +64,27 @@ bool Aeropuerto::operator<(const Aeropuerto &origen) const {
     return  (stoi(id) < stoi(origen.id));
 
 }
-
+/**
+ * @brief Getters que he usado
+ * @return
+ */
 const string &Aeropuerto::getId() const {
     return id;
-}
-
-void Aeropuerto::setId(const string &id) {
-    Aeropuerto::id = id;
 }
 
 const string &Aeropuerto::getIdent() const {
     return ident;
 }
 
-void Aeropuerto::setIdent(const string &ident) {
-    Aeropuerto::ident = ident;
-}
-
-const string &Aeropuerto::getTipo() const {
-    return tipo;
-}
-
-void Aeropuerto::setTipo(const string &tipo) {
-    Aeropuerto::tipo = tipo;
-}
-
 const string &Aeropuerto::getNombre() const {
     return nombre;
 }
 
-void Aeropuerto::setNombre(const string &nombre) {
-    Aeropuerto::nombre = nombre;
-}
-
-void Aeropuerto::setPosicion(const UTM &posicion) {
-    Aeropuerto::posicion = posicion;
-}
 
 const string &Aeropuerto::getContinente() const {
     return continente;
 }
 
-void Aeropuerto::setContinente(const string &continente) {
-    Aeropuerto::continente = continente;
-}
 
-const string &Aeropuerto::getIsoPais() const {
-    return iso_pais;
-}
-
-void Aeropuerto::setIsoPais(const string &isoPais) {
-    iso_pais = isoPais;
-}
 
 

@@ -4,7 +4,7 @@
 
 /**
  * @file VDinamico.h
- * @date 24/09/2023
+ * @date 04/10/2023
  * @author Antonio José Garcia Arias, ajga001@red.ujaen.es
  * @author Abraham Garcia Hurtado, agh00040@red.ujaen.es
  * @title Vector Dinamico
