@@ -1,3 +1,15 @@
+/**
+ * @file main.cpp
+ * @brief Practica 1b
+ * @date 04/10/2023
+ * @post 1- Lectura de un fichero csv que contiene los datos de un aeropuerto
+ * @post 2- Inserccion en una estructura de datos : vector dinamico, que en este caso VDinamico<Aeropuerto>
+ * @post 3- Tras eso hemos realizado operaciones  dentor del vector que son : busqueda, inserccion y borrado
+ * @post 4- Y tambien hemos realizado un tipo de busqueda eficiente que es la busqueda binaria
+ * @author Antonio José Garcia Arias, ajga001@red.ujaen.es
+ * @author Abraham Garcia Hurtado, agh00040@red.ujaen.es
+ * @return
+ */
 #include <iostream>
 #include "time.h"
 #include "VDinamico.h"
@@ -6,28 +18,12 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-
-
-/**
- * @brief Practica 1b Realiza lo siguiente
- * 1- Lectura de un fichero csv que contiene los datos de un aeropuerto
- * 2- Inserccion en una estructura de datos : vector dinamico, que en este caso VDinamico<Aeropuerto>
- * 3- Tras eso hemos realizado operaciones  dentor del vector que son : busqueda, inserccion y borrado
- * 4- Y tambien hemos realizado un tipo de busqueda eficiente que es la busqueda binaria
- * @date 04/10/2023
- * @author Antonio José Garcia Arias, ajga001@red.ujaen.es
- * @author Abraham Garcia Hurtado, agh00040@red.ujaen.es
- * @return
- */
 int main(int argc, const char * argv[]) {
     VDinamico<Aeropuerto> vector;
     std::ifstream is;
     std::stringstream  columnas;
     std::string fila;
     clock_t t_total = clock();
-
-    int contador=0;
-    int nElementos=0;
 
     std::string id = "";
     std::string ident="";
@@ -63,65 +59,62 @@ int main(int argc, const char * argv[]) {
                 longitud=std::stof(longitud_str);
                 fila="";
                 columnas.clear();
-                contador++;
-                /*
-               std::cout
-                       << " Aeropuerto: ( ID=" << id
-                       << " ident=" << ident << " Tipo=" << tipo << " Nombre=" << nombre
-                       << " Posicion=(" << latitud << ", " << longitud << ")"
-                       << " Continente=" << continente << " Pais=" << iso_pais
-                       << ")" << std::endl;
-                */
-                //Creamos puntero de tipo utm
-               UTM *utm= new UTM(latitud,longitud);
-               //Metemos el puntero utm en un objeto aeropuerto
-               Aeropuerto *aeropuerto=new Aeropuerto(id,ident,tipo,nombre,continente,iso_pais,*utm);
                //Insertamos en el vector dinamicco
-               vector.insertar(*aeropuerto);
-               //Aumentamos el numero de elementos tras insertar
-               nElementos++;
-                //Borramos el aeropuerto
-               delete aeropuerto;
-               //Borramos utm
-               delete utm;
-
+               vector.insertar(*new Aeropuerto(id,ident,tipo,nombre,continente,iso_pais,*new UTM(latitud,longitud)));
            }
        }
        //Cerrar
        is.close();
-       std::cout << "Tiempo lectura: " << ((clock() - t_ini) / (float) CLOCKS_PER_SEC) << " segs." << std::endl;
+       std::cout << "Tiempo lectura y escritura: " << ((clock() - t_ini) / (float) CLOCKS_PER_SEC) << " segs." << std::endl;
    } else {
        std::cout << "Error de apertura en archivo" << std::endl;
    }
     try {
+        std::cout<<std::endl<<"-------------------------------------Ordenar Menor a Mayor--------------------------------------""\n"<<std::endl<<std::endl;
+
         //Contador de tiempo
         clock_t t_ordenar = clock();
+
         //Ordenar vector  de menor a mayor
         vector.ordenar();
-        std::cout << "Tiempo durante el orden de menor a mayor: " << ((clock() - t_ordenar) / (float) CLOCKS_PER_SEC)
-                  << " segs."  "\n" << std::endl;
+
         //Mostramos por pantalla los primeros  30 aeropuertos
         for (int i = 1; i < 30; ++i) {
-            std::cout << "Nombre: " + vector[i].getNombre() + " Id: " + vector[i].getId() + "\n" << std::endl;
+            std::cout<< "ID: " + vector[i].getId() +"; Aeropuerto: " + vector[i].getNombre()+"\n"<< std::endl;;
         }
+
+        std::cout << "Tiempo durante el orden de menor a mayor: " << ((clock() - t_ordenar) / (float) CLOCKS_PER_SEC)
+                  << " segs."  << std::endl;
+
+        std::cout<<std::endl<<"-------------------------------------Ordenar Mayor a Menor--------------------------------------"<<std::endl<<std::endl;
+
         clock_t t_ordenar2 = clock();
+
         //Ordenar vector de mayor a menor
         vector.ordenarRev();
-        std::cout << "Tiempo durante el orden de mayor a menor: " << ((clock() - t_ordenar2) / (float) CLOCKS_PER_SEC)
-                  << " segs."  "\n"<< std::endl;
+
         //Mostramos por pantalla los  ultimos  30 aeropuertos
         for (int i = 1; i < 30; ++i) {
-            std::cout << "Nombre: " + vector[i].getNombre() + " Id: " + vector[i].getId() << std::endl;
+            std::cout<< "ID: " + vector[i].getId() +"; Aeropuerto: " + vector[i].getNombre()+"\n"<< std::endl;;
         }
+        std::cout << "Tiempo durante el orden de mayor a menor: " << ((clock() - t_ordenar2) / (float) CLOCKS_PER_SEC)
+                  << " segs."<< std::endl;
+
+        std::cout<<std::endl<<"-------------------------------------Busqueda Binaria/Dicotomica--------------------------------------"<<std::endl<<std::endl;
+
         clock_t t_busqueda = clock();
+
         //Busqueda Binaria por ids y devolver posicion
-        VDinamico<Aeropuerto> busquedaPorID;
-        UTM *utm = new UTM(0.0, 0.0);
-        busquedaPorID.insertar(Aeropuerto("345166", "", "", "", "", "", *utm));
-        busquedaPorID.insertar(Aeropuerto("6640", "", "", "", "", "", *utm));
-        busquedaPorID.insertar(Aeropuerto("6676", "", "", "", "", "", *utm));
-        busquedaPorID.insertar(Aeropuerto("345364", "", "", "", "", "", *utm));
-        busquedaPorID.insertar(Aeropuerto("6778", "", "", "", "", "", *utm));
+        VDinamico<Aeropuerto> busquedaPorID(5);
+        Aeropuerto aux;
+        for (int i = 0; i < 5 ; ++i) {
+            busquedaPorID.insertar(aux);
+        }
+        busquedaPorID[0].setId("345166");
+        busquedaPorID[1].setId("6640");
+        busquedaPorID[2].setId("6676");
+        busquedaPorID[3].setId("345364");
+        busquedaPorID[4].setId("6778");
 
         //Antes de la busqueda binaria el vector tiene que ordenarser de mayor a menor
         vector.ordenar();
@@ -129,7 +122,7 @@ int main(int argc, const char * argv[]) {
             int pos = vector.busquedaBinaria(busquedaPorID[j]);
             if (pos != -1) {
                 std::cout
-                        << "Aeropuerto: " + vector[pos].getNombre() + " Encontrado en la posicion : " + to_string(pos) +
+                        << "ID: " + vector[pos].getId() +"; Aeropuerto: " + vector[pos].getNombre() + "; Encontrado en la posicion : " + to_string(pos) +
                            "\n" << std::endl;
             } else {
                 std::cout << "El aeropuerto no ha sido encontrado con id: " + busquedaPorID[j].getId() + "\n"
@@ -137,10 +130,10 @@ int main(int argc, const char * argv[]) {
 
             }
         }
-        delete utm;
         std::cout << "Tiempo de busqueda binaria: " << ((clock() - t_busqueda) / (float) CLOCKS_PER_SEC) << " segs."
                   << std::endl;
 
+        std::cout<<std::endl<<"-------------------------------------Insertar y eliminar por continente = NA --------------------------------------"<<std::endl<<std::endl;
 
         //Eliminar aeropuertos cuyo continente sea "NA"
         clock_t t_elimina_inser = clock();
@@ -155,19 +148,19 @@ int main(int argc, const char * argv[]) {
             }
             i++;
         }
+
         std::cout << "Vector con continentes su tamaño es: " + to_string(vector.tamlog()) + "\n" << std::endl;
         std::cout << "Contenido del vector sin contientes: "  "\n" << std::endl;
         for (int i = 0; i < 20; ++i) {
-            std::cout << "Aeropuerto: " + vector[i].getNombre() + " Identificacion : " + vector[i].getIdent() + "\n"
-                      << std::endl;
+            std::cout << "ID: " + vector[i].getId() +"; Aeropuerto: " + vector[i].getNombre() +"\n" << std::endl;
         }
 
         std::cout << "Vector sin contientes  su tamaño es: " + to_string(CNA.tamlog()) << std::endl;
         std::cout << "Contenido del vector sin contientes: "  "\n" << std::endl;
         for (int i = 0; i < 20; ++i) {
             CNA.ordenar();
-            std::cout << "Aeropuerto: " + CNA[i].getNombre() + " Identificacion : " + CNA[i].getIdent() + "\n"
-                      << std::endl;
+            std::cout
+                    << "ID: " + CNA[i].getId() +"; Aeropuerto: " + CNA[i].getNombre() +"\n" << std::endl;
         }
         std::cout << "Tiempo elimina e inserta: " << ((clock() - t_elimina_inser) / (float) CLOCKS_PER_SEC)<< " segs."   "\n" << std::endl;
         std::cout << "Tiempo total: " << ((clock() - t_total) / (float) CLOCKS_PER_SEC) << " segs." << std::endl;

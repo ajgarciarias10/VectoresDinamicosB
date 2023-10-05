@@ -1,13 +1,12 @@
 //
 // Created by ajgar on 26/09/2023.
 //
-
 /**
  * @file VDinamico.h
  * @date 04/10/2023
  * @author Antonio José Garcia Arias, ajga001@red.ujaen.es
  * @author Abraham Garcia Hurtado, agh00040@red.ujaen.es
- * @title Vector Dinamico
+ * @brief Vector Dinamico
  */
 #include "stdexcept"
 #include "algorithm"
@@ -51,8 +50,6 @@ public :
     int busquedaBinaria(const T& dato);
     //Obterner el tamaño logico del vector
     unsigned int  tamlog();
-
-
 
 };
 /**
@@ -212,24 +209,34 @@ void VDinamico<T>::ordenarRev(){
 
 template<class T>
 void VDinamico<T>::insertar(const T& dato, unsigned long int pos){
-
+    //Comprobamos si el tamaño logico es el mismo que el fisico
     if(tamalog==tamafis) {
+        //En ese caso creamos un puntero de tipo plantilla en el que le aumentamos
+        //El tamaño fisico a una potencia de dos
         T *vaux= new T[tamafis=tamafis*2];
+        //Recorremos el tamaño logico
         for(int i=0;i<tamalog;i++)
+            //Metemos los datos del vector en la nueva plantilla
             vaux[i]=vector[i];
+        //Borramos los datos del vector
         delete[] vector;
+        //Y sobreescribimos
         vector=vaux;
     }
-
+    //Comprobamos si la posicion es vacia
     if(pos==UINT_MAX){
+        //En caso de que lo sea metemos el dato al final de vector
         vector[tamalog++]=dato;
     }else{
-        if(pos<0 )
+        //Si la posicion es mayor que el tamaño logico del vector
+        if(pos > tamalog)
             throw std::out_of_range ("La posicion no puede ser mayor que el numero de elementos del vector");
-
+        //Si el tamaño logico no es igual que 0
         if(tamalog!=0) {
             tamalog++;
+            //Metemos los datos por el final
             for (int i = tamalog - 1; i > pos +1; i--) {
+                //Movemos los datos del vector una posicion al final
                 vector[i] = vector[i - 1];
             }
             vector[pos] = dato;
@@ -272,7 +279,8 @@ T VDinamico<T>::borrar(unsigned  int pos){
         //Comprobar si el tamaño logico no esta vacio
         if (tamalog != 0) {
             //Movemos los datos hacia atras
-            for (unsigned i = pos; i <tamalog; i++) {
+            //Es el tamalog -1 ya que si se encuentra al final borrando y no retrocede  pa no salirme del vector
+            for (unsigned i = pos; i <tamalog -1 ; i++) {
                 vector[i] =  vector[i + 1] ;
             }
             tamalog--;

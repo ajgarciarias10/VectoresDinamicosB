@@ -1,0 +1,49 @@
+\doxysection{Aeropuerto.\+h}
+\hypertarget{_aeropuerto_8h_source}{}\label{_aeropuerto_8h_source}\mbox{\hyperlink{_aeropuerto_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ ajgar\ on\ 26/09/2023.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ VECTORESDINAMICOSB\_AEROPUERTO\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ VECTORESDINAMICOSB\_AEROPUERTO\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}stdexcept"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}algorithm"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_u_t_m_8h}{UTM.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{using\ namespace\ \ }std;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_aeropuerto}{Aeropuerto}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{string}\ \textcolor{keywordtype}{id}\ =\ \textcolor{stringliteral}{"{}"{}},ident\ =\ \textcolor{stringliteral}{"{}"{}},\ tipo\ =\textcolor{stringliteral}{"{}\ "{}},\ nombre\ =\ \textcolor{stringliteral}{"{}"{}},continente\ =\ \textcolor{stringliteral}{"{}\ "{}},\ iso\_pais\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_u_t_m}{UTM}}\ posicion\ \ ;}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//Constructor\ por\ defecto}}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_aeropuerto_a8b6c8e708fd4408856727858455f2feb}{Aeropuerto}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//Constructor\ copia}}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_aeropuerto_a8b6c8e708fd4408856727858455f2feb}{Aeropuerto}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_aeropuerto}{Aeropuerto}}\ \&origen);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//Constructor\ parametrizado}}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_aeropuerto_a8b6c8e708fd4408856727858455f2feb}{Aeropuerto}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\textcolor{keywordtype}{id},\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&iden,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&tipo,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&nombre,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&continente,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&iso\_pais,\ \mbox{\hyperlink{class_u_t_m}{UTM}}\ posicion);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//Operador\ ==}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator\ ==\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_aeropuerto}{Aeropuerto}}\ \&origen);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//Operador\ =}}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_aeropuerto}{Aeropuerto}}\ \&\mbox{\hyperlink{class_aeropuerto_a159d0d3bff90c182f859fbbf7a8b764f}{operator\ =\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_aeropuerto}{Aeropuerto}}\ \&origen);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//Operador\ <}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_aeropuerto_a76a69d7413f43cfc951dc1219c3d4d49}{operator<\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_aeropuerto}{Aeropuerto}}\ \&origen)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//Get\ ID}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\mbox{\hyperlink{class_aeropuerto_a126ca8d14d71812af7f4d6d2d6d2195d}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//Get\ Identificacion}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\mbox{\hyperlink{class_aeropuerto_a068557cfa2969bfd12a267078d96b593}{getIdent}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//Get\ Nombre}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\mbox{\hyperlink{class_aeropuerto_a7215f766edcb33f6a4947d0fac6fff7e}{getNombre}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//Get\ Continente}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\mbox{\hyperlink{class_aeropuerto_ae1d776b997324d5fadb426a085d7d752}{getContinente}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//Set\ Id}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aeropuerto_a55c13890765b6be7d2b55412e235f4d3}{setId}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00047\ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VECTORESDINAMICOSB\_AEROPUERTO\_H}}
+
+\end{DoxyCode}

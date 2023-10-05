@@ -1,0 +1,311 @@
+\doxysection{VDinamico\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_v_dinamico}{}\label{class_v_dinamico}\index{VDinamico$<$ T $>$@{VDinamico$<$ T $>$}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{VDinamico}} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_dinamico_ad822cf9ab8d09979a5bdb44fcdb4cbb7}{VDinamico}} (\mbox{\hyperlink{class_v_dinamico}{unsigned}} \mbox{\hyperlink{class_v_dinamico}{long}} \mbox{\hyperlink{class_v_dinamico}{int}} \mbox{\hyperlink{class_v_dinamico}{n}})
+\begin{DoxyCompactList}\small\item\em Constructor parametrizado del vector dinamico. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_dinamico_a8c581622f73ef34605227c3ac5547e24}{VDinamico}} (\mbox{\hyperlink{class_v_dinamico}{const}} \mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \&\mbox{\hyperlink{class_v_dinamico}{origen}})
+\begin{DoxyCompactList}\small\item\em Constructor copia. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_dinamico_a2483e1b6200e9aaab24e6c62c7458550}{VDinamico}} (\mbox{\hyperlink{class_v_dinamico}{const}} \mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \&\mbox{\hyperlink{class_v_dinamico}{origen}}, \mbox{\hyperlink{class_v_dinamico}{unsigned}} \mbox{\hyperlink{class_v_dinamico}{int}} \mbox{\hyperlink{class_v_dinamico}{posicioninicial}}, \mbox{\hyperlink{class_v_dinamico}{unsigned}} \mbox{\hyperlink{class_v_dinamico}{int}} \mbox{\hyperlink{class_v_dinamico}{num\+Elementos}})
+\begin{DoxyCompactList}\small\item\em Constructor de copia parcial. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_dinamico_a811145b1f245e6dbda131423adee940f}{\texorpdfstring{$\sim$}{\string~}\+VDinamico}} ()
+\begin{DoxyCompactList}\small\item\em Destructor del vector dinamico. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \& \mbox{\hyperlink{class_v_dinamico_ac67f38b2f607399806ade13687604249}{operator=}} (\mbox{\hyperlink{class_v_dinamico}{const}} \mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \&\mbox{\hyperlink{class_v_dinamico}{origen}})
+\begin{DoxyCompactList}\small\item\em Operator igual pasamos la posicion memoria del vector de origen al vector dinamico. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_dinamico}{T}} \& \mbox{\hyperlink{class_v_dinamico_aa126c5b43adbc1fc0cd3893963a7e9c2}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{class_v_dinamico}{unsigned}} \mbox{\hyperlink{class_v_dinamico}{long}} \mbox{\hyperlink{class_v_dinamico}{int}} \mbox{\hyperlink{class_v_dinamico}{pos}})
+\begin{DoxyCompactList}\small\item\em Operator corchete devuelve el contenido del vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_dinamico}{void}} \mbox{\hyperlink{class_v_dinamico_a54a20403d34e84dd29e48be289c4e31c}{ordenar}} ()
+\begin{DoxyCompactList}\small\item\em Ordena el vector de menor a mayor con la funcion sort. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_dinamico}{void}} \mbox{\hyperlink{class_v_dinamico_a7cab74bed02e17f1afa870cbb07d2bd2}{ordenar\+Rev}} ()
+\begin{DoxyCompactList}\small\item\em Ordena el vector de mayor a menor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_dinamico}{void}} \mbox{\hyperlink{class_v_dinamico_a58b18e92c74d1b48b1ff8b3c6caf2fb4}{insertar}} (\mbox{\hyperlink{class_v_dinamico}{const}} \mbox{\hyperlink{class_v_dinamico}{T}} \&\mbox{\hyperlink{class_v_dinamico}{dato}}, \mbox{\hyperlink{class_v_dinamico}{unsigned}} \mbox{\hyperlink{class_v_dinamico}{long}} \mbox{\hyperlink{class_v_dinamico}{int}} \mbox{\hyperlink{class_v_dinamico}{pos}}=\mbox{\hyperlink{class_v_dinamico}{UINT\+\_\+\+MAX}})
+\begin{DoxyCompactList}\small\item\em Metodo de inserccion de un dato. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_dinamico}{T}} \mbox{\hyperlink{class_v_dinamico_a44c4a73439f1e5f1275c5a43a93d3964}{borrar}} (\mbox{\hyperlink{class_v_dinamico}{unsigned}} \mbox{\hyperlink{class_v_dinamico}{int}} \mbox{\hyperlink{class_v_dinamico}{pos}}=\mbox{\hyperlink{class_v_dinamico}{UINT\+\_\+\+MAX}})
+\begin{DoxyCompactList}\small\item\em Metodo de borrado en funcion de la posicion. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_dinamico}{int}} \mbox{\hyperlink{class_v_dinamico_ac7e2343ce63c021c1f2c87ea9e6b1c8c}{busqueda\+Binaria}} (\mbox{\hyperlink{class_v_dinamico}{const}} \mbox{\hyperlink{class_v_dinamico}{T}} \&\mbox{\hyperlink{class_v_dinamico}{dato}})
+\begin{DoxyCompactList}\small\item\em Metodo para realizar la busqueda binaria del dato en el vecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_dinamico}{unsigned}} \mbox{\hyperlink{class_v_dinamico}{int}} \mbox{\hyperlink{class_v_dinamico_a0ea434c0396f88a7053217e80cecf029}{tamlog}} ()
+\begin{DoxyCompactList}\small\item\em Metdodo para devolver el tamaño lógico. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}\label{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d} 
+\index{VDinamico$<$ T $>$@{VDinamico$<$ T $>$}!VDinamico@{VDinamico}}
+\index{VDinamico@{VDinamico}!VDinamico$<$ T $>$@{VDinamico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{VDinamico()}{VDinamico()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_v_dinamico}{class}} \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \\
+\mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$\mbox{\hyperlink{class_v_dinamico}{\+::\+VDinamico}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor por defecto. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_v_dinamico_ad822cf9ab8d09979a5bdb44fcdb4cbb7}\label{class_v_dinamico_ad822cf9ab8d09979a5bdb44fcdb4cbb7} 
+\index{VDinamico$<$ T $>$@{VDinamico$<$ T $>$}!VDinamico@{VDinamico}}
+\index{VDinamico@{VDinamico}!VDinamico$<$ T $>$@{VDinamico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{VDinamico()}{VDinamico()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_v_dinamico}{class}} \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \\
+\mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$\mbox{\hyperlink{class_v_dinamico}{\+::\+VDinamico}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_v_dinamico}{unsigned}} \mbox{\hyperlink{class_v_dinamico}{long}} \mbox{\hyperlink{class_v_dinamico}{int}}}]{n }\end{DoxyParamCaption})}
+
+
+
+Constructor parametrizado del vector dinamico. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Tamaño asignado al vector \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_v_dinamico_a8c581622f73ef34605227c3ac5547e24}\label{class_v_dinamico_a8c581622f73ef34605227c3ac5547e24} 
+\index{VDinamico$<$ T $>$@{VDinamico$<$ T $>$}!VDinamico@{VDinamico}}
+\index{VDinamico@{VDinamico}!VDinamico$<$ T $>$@{VDinamico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{VDinamico()}{VDinamico()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_v_dinamico}{class}} \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \\
+\mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$\mbox{\hyperlink{class_v_dinamico}{\+::\+VDinamico}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_v_dinamico}{const}} \mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \&}]{origen }\end{DoxyParamCaption})}
+
+
+
+Constructor copia. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em origen} & Direccion de memoria del vector dinamico \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_v_dinamico_a2483e1b6200e9aaab24e6c62c7458550}\label{class_v_dinamico_a2483e1b6200e9aaab24e6c62c7458550} 
+\index{VDinamico$<$ T $>$@{VDinamico$<$ T $>$}!VDinamico@{VDinamico}}
+\index{VDinamico@{VDinamico}!VDinamico$<$ T $>$@{VDinamico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{VDinamico()}{VDinamico()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_v_dinamico}{class}} \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \\
+\mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$\mbox{\hyperlink{class_v_dinamico}{\+::\+VDinamico}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_v_dinamico}{const}} \mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \&}]{origen,  }\item[{\mbox{\hyperlink{class_v_dinamico}{unsigned}} \mbox{\hyperlink{class_v_dinamico}{int}}}]{posicioninicial,  }\item[{\mbox{\hyperlink{class_v_dinamico}{unsigned}} \mbox{\hyperlink{class_v_dinamico}{int}}}]{num\+Elementos }\end{DoxyParamCaption})}
+
+
+
+Constructor de copia parcial. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em origen} & Direccion de memoria del vector dinamico \\
+\hline
+{\em posicioninicial} & Posicion inicial del vector dinamico \\
+\hline
+{\em num\+Elementos} & Le pasamos el numero de elementos maximo que vamos a utilizar en el main \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_v_dinamico_a811145b1f245e6dbda131423adee940f}\label{class_v_dinamico_a811145b1f245e6dbda131423adee940f} 
+\index{VDinamico$<$ T $>$@{VDinamico$<$ T $>$}!````~VDinamico@{\texorpdfstring{$\sim$}{\string~}VDinamico}}
+\index{````~VDinamico@{\texorpdfstring{$\sim$}{\string~}VDinamico}!VDinamico$<$ T $>$@{VDinamico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}VDinamico()}{\string~VDinamico()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_v_dinamico}{class}} \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \\
+\mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{class_v_dinamico}{VDinamico}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor del vector dinamico. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_v_dinamico_a44c4a73439f1e5f1275c5a43a93d3964}\label{class_v_dinamico_a44c4a73439f1e5f1275c5a43a93d3964} 
+\index{VDinamico$<$ T $>$@{VDinamico$<$ T $>$}!borrar@{borrar}}
+\index{borrar@{borrar}!VDinamico$<$ T $>$@{VDinamico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{borrar()}{borrar()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_v_dinamico}{class}} \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \\
+\mbox{\hyperlink{class_v_dinamico}{T}} \mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$\+::borrar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_v_dinamico}{unsigned}} \mbox{\hyperlink{class_v_dinamico}{int}}}]{pos = {\ttfamily \mbox{\hyperlink{class_v_dinamico}{UINT\+\_\+\+MAX}}} }\end{DoxyParamCaption})}
+
+
+
+Metodo de borrado en funcion de la posicion. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & posicion a eliminar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_v_dinamico_ac7e2343ce63c021c1f2c87ea9e6b1c8c}\label{class_v_dinamico_ac7e2343ce63c021c1f2c87ea9e6b1c8c} 
+\index{VDinamico$<$ T $>$@{VDinamico$<$ T $>$}!busquedaBinaria@{busquedaBinaria}}
+\index{busquedaBinaria@{busquedaBinaria}!VDinamico$<$ T $>$@{VDinamico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{busquedaBinaria()}{busquedaBinaria()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_v_dinamico}{class}} \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \\
+\mbox{\hyperlink{class_v_dinamico}{int}} \mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$\+::busqueda\+Binaria (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_v_dinamico}{const}} \mbox{\hyperlink{class_v_dinamico}{T}} \&}]{dato }\end{DoxyParamCaption})}
+
+
+
+Metodo para realizar la busqueda binaria del dato en el vecto. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em dato} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_v_dinamico_a58b18e92c74d1b48b1ff8b3c6caf2fb4}\label{class_v_dinamico_a58b18e92c74d1b48b1ff8b3c6caf2fb4} 
+\index{VDinamico$<$ T $>$@{VDinamico$<$ T $>$}!insertar@{insertar}}
+\index{insertar@{insertar}!VDinamico$<$ T $>$@{VDinamico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertar()}{insertar()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_v_dinamico}{class}} \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \\
+\mbox{\hyperlink{class_v_dinamico}{void}} \mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$\+::insertar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_v_dinamico}{const}} \mbox{\hyperlink{class_v_dinamico}{T}} \&}]{dato,  }\item[{\mbox{\hyperlink{class_v_dinamico}{unsigned}} \mbox{\hyperlink{class_v_dinamico}{long}} \mbox{\hyperlink{class_v_dinamico}{int}}}]{pos = {\ttfamily \mbox{\hyperlink{class_v_dinamico}{UINT\+\_\+\+MAX}}} }\end{DoxyParamCaption})}
+
+
+
+Metodo de inserccion de un dato. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em dato} & \\
+\hline
+{\em pos} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_v_dinamico_ac67f38b2f607399806ade13687604249}\label{class_v_dinamico_ac67f38b2f607399806ade13687604249} 
+\index{VDinamico$<$ T $>$@{VDinamico$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!VDinamico$<$ T $>$@{VDinamico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_v_dinamico}{class}} \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \\
+\mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \& \mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$\mbox{\hyperlink{class_v_dinamico}{\+::operator}}= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_v_dinamico}{const}} \mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \&}]{origen }\end{DoxyParamCaption})}
+
+
+
+Operator igual pasamos la posicion memoria del vector de origen al vector dinamico. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em origen} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_v_dinamico_aa126c5b43adbc1fc0cd3893963a7e9c2}\label{class_v_dinamico_aa126c5b43adbc1fc0cd3893963a7e9c2} 
+\index{VDinamico$<$ T $>$@{VDinamico$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!VDinamico$<$ T $>$@{VDinamico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_v_dinamico}{class}} \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \\
+\mbox{\hyperlink{class_v_dinamico}{T}} \& \mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$\mbox{\hyperlink{class_v_dinamico}{\+::operator}}\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_v_dinamico}{unsigned}} \mbox{\hyperlink{class_v_dinamico}{long}} \mbox{\hyperlink{class_v_dinamico}{int}}}]{pos }\end{DoxyParamCaption})}
+
+
+
+Operator corchete devuelve el contenido del vector. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Parametro en el que utilizamos la posicion del vector para poder obtener el contenido del vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_v_dinamico_a54a20403d34e84dd29e48be289c4e31c}\label{class_v_dinamico_a54a20403d34e84dd29e48be289c4e31c} 
+\index{VDinamico$<$ T $>$@{VDinamico$<$ T $>$}!ordenar@{ordenar}}
+\index{ordenar@{ordenar}!VDinamico$<$ T $>$@{VDinamico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ordenar()}{ordenar()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_v_dinamico}{class}} \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \\
+\mbox{\hyperlink{class_v_dinamico}{void}} \mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$\+::ordenar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Ordena el vector de menor a mayor con la funcion sort. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_v_dinamico_a7cab74bed02e17f1afa870cbb07d2bd2}\label{class_v_dinamico_a7cab74bed02e17f1afa870cbb07d2bd2} 
+\index{VDinamico$<$ T $>$@{VDinamico$<$ T $>$}!ordenarRev@{ordenarRev}}
+\index{ordenarRev@{ordenarRev}!VDinamico$<$ T $>$@{VDinamico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ordenarRev()}{ordenarRev()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_v_dinamico}{class}} \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \\
+\mbox{\hyperlink{class_v_dinamico}{void}} \mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$\+::ordenar\+Rev (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Ordena el vector de mayor a menor. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_v_dinamico_a0ea434c0396f88a7053217e80cecf029}\label{class_v_dinamico_a0ea434c0396f88a7053217e80cecf029} 
+\index{VDinamico$<$ T $>$@{VDinamico$<$ T $>$}!tamlog@{tamlog}}
+\index{tamlog@{tamlog}!VDinamico$<$ T $>$@{VDinamico$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{tamlog()}{tamlog()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_v_dinamico}{class}} \mbox{\hyperlink{class_v_dinamico}{T}} $>$ \\
+\mbox{\hyperlink{class_v_dinamico}{unsigned}} \mbox{\hyperlink{class_v_dinamico}{int}} \mbox{\hyperlink{class_v_dinamico}{VDinamico}}$<$ \mbox{\hyperlink{class_v_dinamico}{T}} $>$\+::tamlog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Metdodo para devolver el tamaño lógico. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_v_dinamico_8h}{VDinamico.\+h}}\end{DoxyCompactItemize}

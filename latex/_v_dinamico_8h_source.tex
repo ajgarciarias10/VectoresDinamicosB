@@ -1,0 +1,266 @@
+\doxysection{VDinamico.\+h}
+\hypertarget{_v_dinamico_8h_source}{}\label{_v_dinamico_8h_source}\mbox{\hyperlink{_v_dinamico_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ ajgar\ on\ 26/09/2023.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}stdexcept"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}algorithm"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}cmath"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}climits"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_aeropuerto_8h}{Aeropuerto.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ VECTORESDINAMICOSB\_VDINAMICO\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ VECTORESDINAMICOSB\_VDINAMICO\_H}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_v_dinamico}{VDinamico}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//Puntero\ a\ tipo\ generico}}
+\DoxyCodeLine{00022\ \ \ \ \ T\ *vector;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//Tamaño\ del\ vector\ sin\ signo\ long\ el\ entero\ mas\ grande}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ tamalog;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ tamafis;}
+\DoxyCodeLine{00026\ public\ :}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//Constructor\ por\ defecto}}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{VDinamico}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//Constructor\ por\ parametrizado}}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{VDinamico}}(\textcolor{keywordtype}{unsigned}\ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//Constructor\ de\ copia}}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{VDinamico}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_v_dinamico}{VDinamico<T>}}\&\ origen);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//Constructor\ de\ copia\ por\ trozos}}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{VDinamico}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_v_dinamico}{VDinamico<T>}}\ \&origen,\ \textcolor{keywordtype}{unsigned}\ \ \textcolor{keywordtype}{int}\ posicioninicial,\ \textcolor{keywordtype}{unsigned}\ \ \textcolor{keywordtype}{int}\ numElementos);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//Destructor}}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_v_dinamico_a811145b1f245e6dbda131423adee940f}{\string~VDinamico}}();}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//Operator\ igual}}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_v_dinamico}{VDinamico<T>}}\ \&\mbox{\hyperlink{class_v_dinamico_ac67f38b2f607399806ade13687604249}{operator\ =\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{VDinamico\ <T>}}\ \&\mbox{\hyperlink{class_v_dinamico}{origen}});}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//Operator\ corchetes\ se\ usa\ para\ acceder\ al\ vector}}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_v_dinamico}{T}}\ \&\mbox{\hyperlink{class_v_dinamico_aa126c5b43adbc1fc0cd3893963a7e9c2}{operator[]}}(\textcolor{keywordtype}{unsigned}\ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{pos}});}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//Ordenar\ de\ menor\ a\ mayor}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_v_dinamico_a54a20403d34e84dd29e48be289c4e31c}{ordenar}}();}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//Ordenar\ de\ mayor\ a\ menor}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_v_dinamico_a7cab74bed02e17f1afa870cbb07d2bd2}{ordenarRev}}();}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//Metodo\ de\ insertar\ en\ el\ vector}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_v_dinamico_a58b18e92c74d1b48b1ff8b3c6caf2fb4}{insertar}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_v_dinamico}{T}}\&\ \mbox{\hyperlink{class_v_dinamico}{dato}},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{pos}}\ =\ \mbox{\hyperlink{class_v_dinamico}{UINT\_MAX}});}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//Metodo\ para\ borrar\ en\ el\ vector\ por\ su\ posicion}}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_v_dinamico}{T}}\ \mbox{\hyperlink{class_v_dinamico_a44c4a73439f1e5f1275c5a43a93d3964}{borrar}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{pos}}\ =\mbox{\hyperlink{class_v_dinamico}{UINT\_MAX}});}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//Busqueda\ Binaria}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico_ac7e2343ce63c021c1f2c87ea9e6b1c8c}{busquedaBinaria}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_v_dinamico}{T}}\&\ \mbox{\hyperlink{class_v_dinamico}{dato}});}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//Obterner\ el\ tamaño\ logico\ del\ vector}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{class_v_dinamico_a0ea434c0396f88a7053217e80cecf029}{tamlog}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00059\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00060\ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{VDinamico<T>::VDinamico}}():tamafis(1),tamalog(0)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ vector\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_v_dinamico}{T}}\ [tamafis];}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00070\ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{VDinamico<T>::VDinamico}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{n}})\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ tamalog\ =\ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{n}};}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{while}(tamalog\ >\ tamafis)\{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ tamafis\ =\ tamafis\ *\ 2;}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//Fijamos\ el\ vector\ con\ el\ tamaño\ fisico}}
+\DoxyCodeLine{00076\ \ \ \ \ vector\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_v_dinamico}{T}}[tamafis];}
+\DoxyCodeLine{00077\ \}}
+\DoxyCodeLine{00084\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00085\ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{VDinamico<T>::VDinamico}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_v_dinamico}{VDinamico<T>}}\ \&\mbox{\hyperlink{class_v_dinamico}{origen}})\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//Reservamos\ en\ memoria\ con\ el\ tamaño\ del\ que\ vamos\ a\ copiar}}
+\DoxyCodeLine{00087\ \ \ \ \ tamalog\ =\ \mbox{\hyperlink{class_v_dinamico}{origen}}.tamalog;}
+\DoxyCodeLine{00088\ \ \ \ \ vector\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_v_dinamico}{T}}[tamafis=\mbox{\hyperlink{class_v_dinamico}{origen}}.tamafis];}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//Le\ pasamos\ cada\ posicion\ de\ memoria\ del\ vector\ origen}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{i}}\ =\ 0;\ \mbox{\hyperlink{class_v_dinamico}{i}}\ <\ \mbox{\hyperlink{class_v_dinamico}{origen}}.tamafis\ ;\ ++\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}})\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ vector[\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}}]\ =\mbox{\hyperlink{class_v_dinamico}{origen}}.vector[\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}}];}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00101\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00102\ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{VDinamico<T>::VDinamico}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_v_dinamico}{VDinamico<T>}}\ \&\mbox{\hyperlink{class_v_dinamico}{origen}},\ \textcolor{keywordtype}{unsigned}\ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{posicioninicial}},\ \textcolor{keywordtype}{unsigned}\ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{numElementos}})\{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Comprobamos\ si\ la\ posicion\ inicial\ supera\ el\ numero\ de\ elementos}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_v_dinamico}{posicioninicial}}\ >\ \mbox{\hyperlink{class_v_dinamico}{numElementos}})\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Ha\ susperado\ el\ limite\ de\ elementos"{}});}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Eliminamos\ el\ vector}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]vector;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Creamos\ un\ vector\ con\ el\ tamaño\ asignado\ a\ la\ diferencia\ del\ numero\ de\ elementos\ con\ la\ posicion\ inical}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ vector\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[tamalog\ =\ \mbox{\hyperlink{class_v_dinamico}{numElementos}}\ -\/\ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{posicioninicial}}];}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ *\ Para\ ver\ si\ es\ potencia\ de\ dos\ realizamos\ el\ log\ en\ base\ dos\ y\ si\ es\ un\ entero\ pues\ es\ log\ en\ base\ 2}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{log2}}(\mbox{\hyperlink{class_v_dinamico}{origen}}.tamafis\%1\ !=\ 0))\{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ tamafis\ =\ 1;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{class_v_dinamico}{origen}}.tamafis\ <\ \mbox{\hyperlink{class_v_dinamico}{origen}}.tamalog\ )\{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tamafis\ =\ \mbox{\hyperlink{class_v_dinamico}{origen}}.tamafis*2;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{i}}\ =\ 0;\ \mbox{\hyperlink{class_v_dinamico}{i}}\ <\ tamalog;\ ++\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}})\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ vector[\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}}]\ =\ \mbox{\hyperlink{class_v_dinamico}{origen}}.vector[\mbox{\hyperlink{class_v_dinamico}{posicioninicial}}\ +\ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}}];}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \}}
+\DoxyCodeLine{00128\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00129\ \mbox{\hyperlink{class_v_dinamico_a811145b1f245e6dbda131423adee940f}{VDinamico<T>::\string~VDinamico}}()\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//Borramos\ el\ vector}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{delete}[]\ vector;}
+\DoxyCodeLine{00132\ \}}
+\DoxyCodeLine{00140\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00141\ \mbox{\hyperlink{class_v_dinamico}{VDinamico<T>}}\ \&\mbox{\hyperlink{class_v_dinamico_ac67f38b2f607399806ade13687604249}{VDinamico<T>::operator\ =\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_v_dinamico}{VDinamico\ <T>}}\ \&\mbox{\hyperlink{class_v_dinamico}{origen}})\{}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//Comprobamos\ que\ no\ sea\ la\ misma\ direccion\ de\ memoria}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{if}(\textcolor{keyword}{this}!=\mbox{\hyperlink{class_v_dinamico}{origen}})\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Eliminamos\ el\ vector\ que\ teniamos}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ vector;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ tamalog\ =\ \mbox{\hyperlink{class_v_dinamico}{origen}}.tamalog;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{log2}}(\mbox{\hyperlink{class_v_dinamico}{origen}}.tamafis\%1\ !=\ 0))\{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ tamafis\ =\ 1;}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{class_v_dinamico}{origen}}.tamafis\ <\ \mbox{\hyperlink{class_v_dinamico}{origen}}.tamalog\ )\{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tamafis\ =\ \mbox{\hyperlink{class_v_dinamico}{origen}}.tamafis*2;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Reservamos\ en\ memoria\ con\ el\ tamaño\ del\ que\ vamos\ a\ copiar}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ vector\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[tamalog\ =\ \mbox{\hyperlink{class_v_dinamico}{origen}}.tamalog];}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Le\ pasamos\ cada\ posicion\ de\ memoria\ del\ vector\ origen}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{i}}\ =\ 0;\ \mbox{\hyperlink{class_v_dinamico}{i}}\ <\ \mbox{\hyperlink{class_v_dinamico}{origen}}.tamalog;\ ++\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}})\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ vector[\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}}]\ =\ \mbox{\hyperlink{class_v_dinamico}{origen}}.vector[\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}}];}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00161\ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00170\ \mbox{\hyperlink{class_v_dinamico}{T}}\ \&\mbox{\hyperlink{class_v_dinamico_aa126c5b43adbc1fc0cd3893963a7e9c2}{VDinamico<T>::operator[]}}(\textcolor{keywordtype}{unsigned}\ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{pos}})\{}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{comment}{//Comprobamos\ si\ la\ posicion\ supera\ el\ tamaño}}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_v_dinamico}{pos}}\ >=\ tamalog)\{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Ha\ superado\ el\ limite\ de\ elementos"{}});}
+\DoxyCodeLine{00174\ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//En\ caso\ contrario\ devolvemos\ la\ posicion}}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordflow}{return}\ vector[\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{pos}}];}
+\DoxyCodeLine{00177\ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00183\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00184\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_v_dinamico_a54a20403d34e84dd29e48be289c4e31c}{VDinamico<T>::ordenar}}()\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{comment}{//El\ sort\ se\ va\ hacia\ el\ operator\ <\ de\ nuestro\ \ vector}}
+\DoxyCodeLine{00186\ \ \ \ \ std::sort(vector,vector\ +\ tamalog);}
+\DoxyCodeLine{00187\ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00193\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00194\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_v_dinamico_a7cab74bed02e17f1afa870cbb07d2bd2}{VDinamico<T>::ordenarRev}}()\{}
+\DoxyCodeLine{00195\ \ \ \ \ \mbox{\hyperlink{class_v_dinamico}{T}}\ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{aux}};}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{i}}\ =\ 0;\ \mbox{\hyperlink{class_v_dinamico}{i}}\ <\ tamalog/2\ ;\ ++\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}})\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_v_dinamico}{aux}}\ =\ vector[\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}}];}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ vector[\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}}]=vector[tamalog-\/\mbox{\hyperlink{class_v_dinamico}{i}}-\/1];}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ vector[tamalog-\/\mbox{\hyperlink{class_v_dinamico}{i}}-\/1]=\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{aux}};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \}}
+\DoxyCodeLine{00202\ \}}
+\DoxyCodeLine{00210\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00211\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_v_dinamico_a58b18e92c74d1b48b1ff8b3c6caf2fb4}{VDinamico<T>::insertar}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_v_dinamico}{T}}\&\ \mbox{\hyperlink{class_v_dinamico}{dato}},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{pos}})\{}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{comment}{//Comprobamos\ si\ el\ tamaño\ logico\ es\ el\ mismo\ que\ el\ fisico}}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordflow}{if}(tamalog==tamafis)\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{comment}{//En\ ese\ caso\ creamos\ un\ puntero\ de\ tipo\ plantilla\ en\ el\ que\ le\ aumentamos}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{comment}{//El\ tamaño\ fisico\ a\ una\ potencia\ de\ dos}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_v_dinamico}{T}}\ *\mbox{\hyperlink{class_v_dinamico}{vaux}}=\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_v_dinamico}{T}}[tamafis=tamafis*2];}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Recorremos\ el\ tamaño\ logico}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{i}}=0;\mbox{\hyperlink{class_v_dinamico}{i}}<tamalog;\mbox{\hyperlink{class_v_dinamico}{i}}++)}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Metemos\ los\ datos\ del\ vector\ en\ la\ nueva\ plantilla}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_v_dinamico}{vaux}}[\mbox{\hyperlink{class_v_dinamico}{i}}]=vector[\mbox{\hyperlink{class_v_dinamico}{i}}];}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Borramos\ los\ datos\ del\ vector}}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ vector;}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Y\ sobreescribimos}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ vector=\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{vaux}};}
+\DoxyCodeLine{00225\ \ \ \ \ \}}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{comment}{//Comprobamos\ si\ la\ posicion\ es\ vacia}}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_v_dinamico}{pos}}==\mbox{\hyperlink{class_v_dinamico}{UINT\_MAX}})\{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{comment}{//En\ caso\ de\ que\ lo\ sea\ metemos\ el\ dato\ al\ final\ de\ vector}}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ vector[tamalog++]=\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{dato}};}
+\DoxyCodeLine{00230\ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Si\ la\ posicion\ es\ mayor\ que\ el\ tamaño\ logico\ del\ vector}}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_v_dinamico}{pos}}\ >\ tamalog)}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range\ (\textcolor{stringliteral}{"{}La\ posicion\ no\ puede\ ser\ mayor\ que\ el\ numero\ de\ elementos\ del\ vector"{}});}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Si\ el\ tamaño\ logico\ no\ es\ igual\ que\ 0}}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tamalog!=0)\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ tamalog++;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Metemos\ los\ datos\ por\ el\ final}}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{i}}\ =\ tamalog\ -\/\ 1;\ \mbox{\hyperlink{class_v_dinamico}{i}}\ >\ \mbox{\hyperlink{class_v_dinamico}{pos}}\ +1;\ \mbox{\hyperlink{class_v_dinamico}{i}}-\/-\/)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Movemos\ los\ datos\ del\ vector\ una\ posicion\ al\ final}}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vector[\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}}]\ =\ vector[\mbox{\hyperlink{class_v_dinamico}{i}}\ -\/\ 1];}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ vector[\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{pos}}]\ =\ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{dato}};}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ \ \ \ \ \}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \}}
+\DoxyCodeLine{00253\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00254\ \mbox{\hyperlink{class_v_dinamico}{T}}\ \mbox{\hyperlink{class_v_dinamico_a44c4a73439f1e5f1275c5a43a93d3964}{VDinamico<T>::borrar}}(\textcolor{keywordtype}{unsigned}\ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{pos}})\{}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{comment}{//Si\ el\ tamaño\ logico\ es\ un\ tercio\ menor\ que\ el\ tamaño\ fisico}}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordflow}{if}(tamalog*3\ <\ tamafis)\{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Reducimos\ el\ tamaño\ fisico\ a\ la\ mitad}}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ tamafis\ =\ tamafis\ /\ 2;}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Creo\ un\ vector\ como\ puntero\ con\ \ el\ nuevo\ tamaño\ fisico\ reducido}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_v_dinamico}{T}}\ *\mbox{\hyperlink{class_v_dinamico}{vaux}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_v_dinamico}{T}}[tamafis];}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Recorro\ el\ vector\ y\ lo\ pasamos\ \ al\ vector\ en\ el\ nuevo\ vector\ puntero}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{unsigned}\ \ \mbox{\hyperlink{class_v_dinamico}{i}}=0\ ;\ \mbox{\hyperlink{class_v_dinamico}{i}}\ <\ tamalog;\ \mbox{\hyperlink{class_v_dinamico}{i}}++)\{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_v_dinamico}{vaux}}[\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}}]=\ vector[\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}}];}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Borre\ el\ vector}}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ []vector;}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Sobreescribimos\ en\ el\ vector}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ vector=\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{vaux}};}
+\DoxyCodeLine{00269\ \ \ \ \ \}}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{comment}{//Las\ posicion\ ha\ superado\ el\ tamaño\ del\ vector}}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_v_dinamico}{pos}}\ >\ tamalog)}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Posicion\ fuera\ del\ vector"{}});}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{comment}{//Si\ no\ le\ mandas\ ninguna\ posicion}}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_v_dinamico}{pos}}==\mbox{\hyperlink{class_v_dinamico}{UINT\_MAX}})\{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Devolvemos\ el\ vector}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ vector[-\/-\/tamalog];}
+\DoxyCodeLine{00277\ \ \ \ \ \}}
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Comprobar\ si\ el\ tamaño\ logico\ no\ esta\ vacio}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tamalog\ !=\ 0)\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Movemos\ los\ datos\ hacia\ atras}}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Es\ el\ tamalog\ -\/1\ ya\ que\ si\ se\ encuentra\ al\ final\ borrando\ y\ no\ retrocede\ \ pa\ no\ salirme\ del\ vector}}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{class_v_dinamico}{i}}\ =\ \mbox{\hyperlink{class_v_dinamico}{pos}};\ \mbox{\hyperlink{class_v_dinamico}{i}}\ <tamalog\ -\/1\ ;\ \mbox{\hyperlink{class_v_dinamico}{i}}++)\ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vector[\mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{i}}]\ =\ \ vector[\mbox{\hyperlink{class_v_dinamico}{i}}\ +\ 1]\ ;}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ tamalog-\/-\/;}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ vector[tamalog];}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ \ \ \}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \}}
+\DoxyCodeLine{00305\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00306\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico_ac7e2343ce63c021c1f2c87ea9e6b1c8c}{VDinamico<T>::busquedaBinaria}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_v_dinamico}{T}}\&\ \mbox{\hyperlink{class_v_dinamico}{dato}})\ \{}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{comment}{//Antes\ de\ realizar\ esto\ el\ vector\ deberia\ estar\ ordenado}}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{comment}{//Inicializamos\ una\ posicion\ inferior}}
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{inf}}=\ 0;}
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{comment}{//Incializamos\ la\ posicion\ superior}}
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico}{sup}}\ =\ tamalog\ -\/1\ ;}
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{comment}{//Variable\ para\ la\ busqueda\ de\ la\ posicion}}
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{curIn}};}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{comment}{//Mientras\ la\ posicion}}
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{class_v_dinamico}{inf}}\ <=\ \mbox{\hyperlink{class_v_dinamico}{sup}})\{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Reducimos\ el\ vector\ para\ la\ busqueda}}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_v_dinamico}{curIn}}\ =\ (\mbox{\hyperlink{class_v_dinamico}{inf}}\ +\ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{sup}})/2;}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Si\ el\ vector\ tiene\ el\ dato\ pues\ devolvemos\ la\ poosicion\ partido}}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(vector[\mbox{\hyperlink{class_v_dinamico}{curIn}}]\ ==\ \mbox{\hyperlink{class_v_dinamico}{dato}})}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \ \mbox{\hyperlink{class_v_dinamico_af905a96dbf84b7a2e660b73b49e51e8d}{curIn}};}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Si\ el\ datos\ es\ menor\ que\ la\ posicion\ del\ vector}}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vector[\mbox{\hyperlink{class_v_dinamico}{curIn}}]\ <\ \mbox{\hyperlink{class_v_dinamico}{dato}})\ \mbox{\hyperlink{class_v_dinamico}{inf}}\ =\ \mbox{\hyperlink{class_v_dinamico}{curIn}}\ +\ 1\ ;}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \mbox{\hyperlink{class_v_dinamico}{sup}}\ =\ \mbox{\hyperlink{class_v_dinamico}{curIn}}\ -\/\ 1\ ;}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \ \ \ \ \}}
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{comment}{//En\ caso\ de\ que\ no\ se\ realice\ la\ busqueda\ del\ dato\ dentro\ del\ vector\ devolvemos\ el\ fallo}}
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keywordflow}{return}\ \ -\/1;}
+\DoxyCodeLine{00328\ \}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00335\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00336\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{class_v_dinamico_a0ea434c0396f88a7053217e80cecf029}{VDinamico<T>::tamlog}}()\ \{}
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{keywordflow}{return}\ \ tamalog;}
+\DoxyCodeLine{00338\ \}}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VECTORESDINAMICOSB\_VDINAMICO\_H}}
+
+\end{DoxyCode}

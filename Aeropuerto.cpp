@@ -65,24 +65,40 @@ bool Aeropuerto::operator<(const Aeropuerto &origen) const {
 
 }
 /**
- * @brief Getters que he usado
+ * @brief Get ID
  * @return
  */
 const string &Aeropuerto::getId() const {
     return id;
 }
-
+/**
+ * @brief Get  Identificacion
+ * @return
+ */
 const string &Aeropuerto::getIdent() const {
     return ident;
 }
-
+/**
+ * @brief Get  Nombre
+ * @return
+ */
 const string &Aeropuerto::getNombre() const {
     return nombre;
 }
 
-
+/**
+ * @brief Get  Contiente
+ * @return
+ */
 const string &Aeropuerto::getContinente() const {
     return continente;
+}
+/**
+ * @brief Set Id
+ * @return
+ */
+void Aeropuerto::setId(const string &id) {
+    Aeropuerto::id = id;
 }
 
 
