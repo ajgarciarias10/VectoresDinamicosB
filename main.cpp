@@ -80,7 +80,7 @@ int main(int argc, const char * argv[]) {
 
         //Mostramos por pantalla los primeros  30 aeropuertos
         for (int i = 1; i < 30; ++i) {
-            std::cout<< "ID: " + vector[i].getId() +"; Aeropuerto: " + vector[i].getNombre()+"\n"<< std::endl;;
+            std::cout<< "ID: " << vector[i].getId() <<"; Aeropuerto: " << vector[i].getNombre()<<"\n"<< std::endl;;
         }
 
         std::cout << "Tiempo durante el orden de menor a mayor: " << ((clock() - t_ordenar) / (float) CLOCKS_PER_SEC)
@@ -95,7 +95,7 @@ int main(int argc, const char * argv[]) {
 
         //Mostramos por pantalla los  ultimos  30 aeropuertos
         for (int i = 1; i < 30; ++i) {
-            std::cout<< "ID: " + vector[i].getId() +"; Aeropuerto: " + vector[i].getNombre()+"\n"<< std::endl;;
+            std::cout<< "ID: "<< vector[i].getId() +"; Aeropuerto: "<< vector[i].getNombre()<<"\n"<< std::endl;;
         }
         std::cout << "Tiempo durante el orden de mayor a menor: " << ((clock() - t_ordenar2) / (float) CLOCKS_PER_SEC)
                   << " segs."<< std::endl;
@@ -122,8 +122,7 @@ int main(int argc, const char * argv[]) {
             int pos = vector.busquedaBinaria(busquedaPorID[j]);
             if (pos != -1) {
                 std::cout
-                        << "ID: " + vector[pos].getId() +"; Aeropuerto: " + vector[pos].getNombre() + "; Encontrado en la posicion : " + to_string(pos) +
-                           "\n" << std::endl;
+                        << "ID: " << vector[pos].getId() <<"; Aeropuerto: " << vector[pos].getNombre() <<"; Encontrado en la posicion : " <<pos<<"\n" << std::endl;
             } else {
                 std::cout << "El aeropuerto no ha sido encontrado con id: " + busquedaPorID[j].getId() + "\n"
                           << std::endl;
