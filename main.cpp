@@ -149,18 +149,19 @@ int main(int argc, const char * argv[]) {
             i++;
         }
 
-        std::cout << "Vector con continentes su tamaño es: " + to_string(vector.tamlog()) + "\n" << std::endl;
-        std::cout << "Contenido del vector sin contientes: "  "\n" << std::endl;
+        std::cout << "Vector con continentes su tamaño es: " << vector.tamlog() << "\n" << std::endl;
+        std::cout << "Contenido del vector con contientes: "  "\n" << std::endl;
         for (int i = 0; i < 20; ++i) {
             std::cout << "ID: " + vector[i].getId() +"; Aeropuerto: " + vector[i].getNombre() +"\n" << std::endl;
         }
 
-        std::cout << "Vector sin contientes  su tamaño es: " + to_string(CNA.tamlog()) << std::endl;
+        std::cout << "Vector sin contientes  su tamaño es: " <<CNA.tamlog() << std::endl;
         std::cout << "Contenido del vector sin contientes: "  "\n" << std::endl;
+        //Los 20 primeros
+        CNA.ordenar();
         for (int i = 0; i < 20; ++i) {
-            CNA.ordenar();
             std::cout
-                    << "ID: " + CNA[i].getId() +"; Aeropuerto: " + CNA[i].getNombre() +"\n" << std::endl;
+                    << "ID: " << CNA[i].getId() <<"; Aeropuerto: " << CNA[i].getNombre() <<"\n" << std::endl;
         }
         std::cout << "Tiempo elimina e inserta: " << ((clock() - t_elimina_inser) / (float) CLOCKS_PER_SEC)<< " segs."   "\n" << std::endl;
         std::cout << "Tiempo total: " << ((clock() - t_total) / (float) CLOCKS_PER_SEC) << " segs." << std::endl;
